@@ -45,19 +45,19 @@ db.orders.aggregate([
     {
         $group: {
             _id: "$staff",
-            total_order: {
-            $sum: 1
-            }
+            total_order: {$sum: 1}
         }
     },
     {
-        $project: 
-        {
-            "_id": 
-            {
+        $project: {
+            "_id": 0, 
            "Full name": { $concat : ["$_id.first_name"," ", "$_id.last_name"]},
             "total order": "$total_order"
-            }
+        }
+    },
+    {
+        $sort: {
+            "total order": -1
         }
     }
 ])

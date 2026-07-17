@@ -29,10 +29,12 @@
 // Write in English or Thai. Do not skip this step.
 //
 // Your thinking:
-// โจทย์อยากได้รายการอาหาร เฉพาะ category side
+// โจทย์อยากได้รายการอาหาร เฉพาะ category side 
 // เมนูอาหารอยู่ใน collection menu_items โดยเราจะหา เฉพาะ field category ที่มีค่าเป็น side เท่านั้น
-// 
+// แสดงผลออกมาเป็น name กับ price
 
 use("chrome-burger-db")
 
-db.menu_items.find({category: "Side"})
+db.menu_items.find(
+    {category: "Side"},
+    {_id: 0, name: 1, price: 1})

@@ -37,9 +37,7 @@
 use("chrome-burger-db")
 
 db.staff.find(
-    {
-        role: "Cook"
-    },
+    {role: "Cook"},
     {
         _id: 0,
         first_name: 1,
