@@ -7,8 +7,7 @@
 --
 -- Hint: Write a query that uses an aggregate function on the Orders table
 -- to sum the total_price across all orders, returning the result as total_revenue.
-
--- ---------------------------------------------------------------
+ -- ---------------------------------------------------------------
 -- Your thinking process (required)
 -- ---------------------------------------------------------------
 -- Before writing your query, explain in your own words how you
@@ -17,4 +16,8 @@
 -- Write in English or Thai. Do not skip this step.
 --
 -- Your thinking:
---
+-- sql เป็นตาราง แค่เราเอาทุกค่าใน column total_price มาหาผลรวม แล้วให้ไปอยู่ใน column total_revenue
+-- ซึ่งทั้งหมดอยู่ในตารางเดียวกันก็คือ orders
+
+SELECT SUM(total_price) AS total_revenue
+FROM orders;
