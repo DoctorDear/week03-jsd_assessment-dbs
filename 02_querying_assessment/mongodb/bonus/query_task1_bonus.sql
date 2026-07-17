@@ -27,4 +27,4 @@
 SELECT name,
        price
 FROM menuitems
-WHERE price < '10'
+WHERE price < 10

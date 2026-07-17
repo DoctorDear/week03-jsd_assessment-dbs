@@ -21,9 +21,9 @@
 -- Write in English or Thai. Do not skip this step.
 --
 -- Your thinking:
--- ดูว่ารายการในตาราง ingredients อันไหนที่ columm storck level มีค่ามากกว่าตั้งแต่ 100 
--- ก็ให้แสดงผลออกมา 
- 
+-- ดูว่ารายการในตาราง ingredients อันไหนที่ columm storck level มีค่ามากกว่าตั้งแต่ 100
+-- ก็ให้แสดงผลออกมา
+
 SELECT name
-FROM ingredients 
-where stock_level >= '100';
+FROM ingredients
+where stock_level >= 100;
