@@ -33,7 +33,26 @@
 //
 // Your thinking:
 // ข้อนี้ต้อง aggregation แล้ว เริ่มต้นที่เราจะ query ที่ collection orders เพราะยอดขายทั้งหมดอยู่ในนั้น
-// ยอดขายแต่ละ documents คือ field total_price ดังนั้นเราจะต้องรวม total_price ทั้งหมด ให้ออกมา
+// ยอดขายแต่ละ documents คือ field total_price ดังนั้นเราจะต้องรวมค่าใน total_price ทั้งหมด ให้ออกมา
 // เป็นยอดขายรวม ก็คือ field total_revenue โดยทั้งหมดจะต้องใช้วิธีการ aggregation 
+// stage แรก group ได้เลย เพราะยังไงเราก็เอาทุก orders อยู่แล้ว 
+//  https://www.geeksforgeeks.org/mongodb/mongodb-aggregation-group-command/
 
+use("chrome-burger-db")
 
+db.orders.aggregate([
+    {
+        $group: {
+          _id: null,
+          total_revenue: {
+            $sum: "$total_price"
+          }
+        }
+    },
+    {
+        $project: {
+          _id: 0
+        }
+    }
+]
+)
